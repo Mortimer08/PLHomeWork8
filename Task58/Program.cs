@@ -9,20 +9,19 @@
 // 18 20
 // 15 18
 
-int[,] CreateMatrixRndInt(int rows, int columns, int SumLine, int max)
+int[,] CreateMatrixRndInt(int rows, int columns, int min, int max)
 {
     int[,] matrix = new int[rows, columns];
     Random rnd = new Random();
-    for (int i = 0; i < matrix.GetLength(0); i++)
+    for (int i = 0; i < rows; i++)
     {
-        for (int j = 0; j < matrix.GetLength(1); j++)
+        for (int j = 0; j < columns; j++)
         {
-            matrix[i, j] = rnd.Next(SumLine, max + 1);
+            matrix[i, j] = rnd.Next(min, max + 1);
         }
     }
     return matrix;
 }
-
 void PrintMatrix(int[,] matrix)
 {
     for (int i = 0; i < matrix.GetLength(0); i++)
@@ -59,7 +58,7 @@ bool IsMatrixesMultiplicatuble(int[,] matrix1, int[,] matrix2)
     return (matrix1.GetLength(1) == matrix2.GetLength(0));
 }
 
-int[,] matrixRnd1 = CreateMatrixRndInt(2, 3, 1, 9);
+int[,] matrixRnd1 = CreateMatrixRndInt(2, 2, 1, 9);
 int[,] matrixRnd2 = CreateMatrixRndInt(2, 2, 1, 9);
 
 PrintMatrix(matrixRnd1);
